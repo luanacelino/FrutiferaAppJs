@@ -1,33 +1,23 @@
 // Calcula a idade em meses a partir de uma data no formato dd/mm/aaaa
 const calcularIdadeEmMeses = (dataPlantioStr) => {
-  // Separar dia, mês e ano da string
   const [dia, mes, ano] = dataPlantioStr.split('/').map(Number);
-  
-  // Criar objeto Date da data de plantio (mês em JS começa em 0)
   const plantio = new Date(ano, mes - 1, dia);
-  
-  // Data de hoje
   const hoje = new Date();
 
-  // Calcular diferença em meses
-  let meses = (hoje.getFullYear() - plantio.getFullYear()) * 12 + 
+  let meses = (hoje.getFullYear() - plantio.getFullYear()) * 12 +
               (hoje.getMonth() - plantio.getMonth());
 
-  // Ajustar se o dia ainda não chegou neste mês
   if (hoje.getDate() < plantio.getDate()) {
     meses -= 1;
   }
 
-  // Retornar pelo menos 0 (nunca negativo)
   return meses < 0 ? 0 : meses;
 };
 
 // Cria o HTML de um card de fruteira
 const criarCardFruteira = (fruteira) => {
-  // Calcular a idade em meses
   const idadeMeses = calcularIdadeEmMeses(fruteira.dataPlantio);
 
-  // Montar o HTML do card
   const card = `
     <div class="col">
       <div class="card h-100">
@@ -67,9 +57,8 @@ for (let fruteira of fruteiras) {
 const campoDataPlantio = document.getElementById('dataPlantio');
 
 campoDataPlantio.addEventListener('input', (evento) => {
-  let valor = evento.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
-  
-  // Adicionar as barras automaticamente
+  let valor = evento.target.value.replace(/\D/g, '');
+
   if (valor.length > 2) {
     valor = valor.slice(0, 2) + '/' + valor.slice(2);
   }
@@ -79,7 +68,7 @@ campoDataPlantio.addEventListener('input', (evento) => {
   if (valor.length > 10) {
     valor = valor.slice(0, 10);
   }
-  
+
   evento.target.value = valor;
 });
 
@@ -125,13 +114,5 @@ formularioFruteira.onsubmit = (evento) => {
 
   // Limpar o formulário
   formularioFruteira.reset();
-
-  // Exibir notificação de sucesso
-  Toastify({
-    text: 'Fruteira cadastrada com sucesso!',
-    className: 'info',
-    style: {
-      background: 'linear-gradient(to right, #00b09b, #96c93d)',
-    },
-  }).showToast();
 };
+  
