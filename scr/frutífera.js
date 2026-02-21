@@ -115,4 +115,5 @@ formularioFruteira.onsubmit = (evento) => {
   // Limpar o formulário
   formularioFruteira.reset();
 };
+
   
