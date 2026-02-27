@@ -1,8 +1,3 @@
-// Esse arquivo é o coração da aplicação. Aqui acontece tudo: cadastro, listagem,
-// cálculo de idade, exclusão, e a persistência dos dados no navegador.
-
-
-
 // FUNÇÃO: calcularIdadeEmMeses
 
 // Essa função recebe uma data em formato brasileiro (dd/mm/aaaa) e calcula
