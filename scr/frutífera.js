@@ -3,7 +3,7 @@
 // Essa função recebe uma data em formato brasileiro (dd/mm/aaaa) e calcula
 // quantos meses se passaram desde aquela data até hoje.
 // 
-// Por exemplo: se a fruteira foi plantada em 15/03/2020 e hoje é 27/02/2025,
+// Por exemplo: se a fruteira foi plantada em 15/03/2020 e hoje é 27/02/2026,
 // ela tem 58 meses de vida.
 //
 // É importante calcular corretamente porque esse valor é exibido no card!
